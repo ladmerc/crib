@@ -5,7 +5,10 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"way/generators": "~2.0"
+		"way/generators": "~2.0",
+		"laravelbook/ardent": "2.4.*",
+		"league/factory-muffin": "~2.0",
+		"phpunit/phpunit": "3.7.*"
 	},
 	"autoload": {
 		"classmap": [
