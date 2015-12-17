@@ -1,13 +1,13 @@
 <?php
 
-// return array(
-//   'default' => 'sqlite',
+return array(
+  'default' => 'sqlite',
   
-//   'connections' => array(
-//     'sqlite' => array(
-//       'driver'   => 'sqlite',
-//       'database' => ':memory:',
-//       'prefix'   => ''
-//     ),
-//   )
-// );
+  'connections' => array(
+    'sqlite' => array(
+      'driver'   => 'sqlite',
+      'database' => ':memory:',
+      'prefix'   => ''
+    ),
+  )
+);

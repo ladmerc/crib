@@ -13,6 +13,10 @@ class Post extends Eloquent {
 	 */
 	protected $table = 'posts';
 
+	public static $rules = array(
+		'clique_id' => 'required|numeric'
+	);
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -24,6 +28,19 @@ class Post extends Eloquent {
 	public function user()
 	{
 		return $this->belongsTo('User');
+	}
+
+	/**
+	 * Post relationship
+	*/
+	public function clique()
+	{
+	  return $this->belongsTo('Clique');
+	}
+
+	public function comments()
+	{
+		return $this->morphMany('Comment', 'commentable');
 	}
 
 }
