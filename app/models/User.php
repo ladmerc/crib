@@ -13,6 +13,9 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
+	public $dummy = "this is a dummy";
+	
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -32,6 +35,17 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	);
 
 	public $autoPurgeRedundantAttributes = true;
+
+	public function isValid($data)
+	{
+		$validation = Validator::make($data, static::$rules);
+
+		if ($validation->passes()) return true;
+
+		$this->errors = $validation->messages();
+
+		return false;
+	}
 
 	public function posts()
 	{

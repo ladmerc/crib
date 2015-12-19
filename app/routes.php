@@ -38,7 +38,7 @@ $user->posts()->save($post);
 var_dump($user->posts()->find(3));
 });
 
-Route::get('/users', function()
+Route::get('/users_all', function()
 {
   // Create User 1
   $user1 = new User();
@@ -90,6 +90,6 @@ Route::get('/users', function()
 
 });
 
-Route::resource('user', 'UserController');
+Route::resource('users', 'UserController');
 
 // User::find(Auth::user()->id)->follow()->attach($id);

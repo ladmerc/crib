@@ -4,6 +4,8 @@ use Crib\Storage\User\UserRepository as User;
 
 class UserController extends \BaseController {
 
+	protected $user;
+
 	public function __construct(User $user)
 	{
 		$this->user = $user;
@@ -17,7 +19,8 @@ class UserController extends \BaseController {
 	public function index()
 	{
 		//
-		return $this->user->all();
+		// return $this->user->all();
+		echo($this->user->dummy);
 	}
 
 
@@ -29,6 +32,7 @@ class UserController extends \BaseController {
 	public function create()
 	{
 		//
+		return View::make('users.create');
 	}
 
 
@@ -40,6 +44,12 @@ class UserController extends \BaseController {
 	public function store()
 	{
 		//
+		if (! $this->user->isValid(Input::all()))
+		{
+			return Redirect::back()->withInput()->withErrors($this->user->errors);
+		}
+		$this->user->create(Input::al());
+		Redirect::route('users.index')->with('flash', 'The new user has been saved');
 	}
 
 

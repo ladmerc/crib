@@ -28,18 +28,31 @@ class UserControllerTest extends TestCase
 	* @group user
 	*/
 
-	public function testIndex()
-	{
-	  $this->mock->shouldReceive('all')->once();
+	// public function testIndex()
+	// {
+	// 	$this->mock->shouldReceive('all')->once();
 	 
-	  $this->call('GET', 'user');
+	// 	$this->call('GET', 'users_all');
 	 
-	  $this->assertResponseOk();
-	}
+	// 	$this->assertResponseOk();
+	// }
 
 	/**
 	* @group user2
 	*/
+
+	public function testCreateUser()
+	{
+		$this->call('GET', 'users/create');
+		$this->assertResponseOk();
+	}
+
+	public function testStoreUserFails()
+	{
+		$this->mock->shouldReceive('store')->once()->andReturn(false);
+		$this->call('POST', 'users');
+		$this->assertResponseOk();
+	}
 
 	// public function testArchiveHasPosts()
 	// {

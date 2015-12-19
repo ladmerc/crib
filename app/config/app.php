@@ -120,7 +120,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Crib\Storage\StorageServiceProvider',
+		'Crib\Storage\StorageServiceProvider'
 
 	),
 
