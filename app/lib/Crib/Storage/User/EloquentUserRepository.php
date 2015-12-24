@@ -3,7 +3,14 @@ namespace Crib\Storage\User;
  
 use User;
  
-class EloquentUserRepository extends User implements UserRepository {
+class EloquentUserRepository implements UserRepository {
+
+  public $userModel;
+
+  public function __construct(User $user)
+  { 
+    $this->userModel = $user;
+  }
  
   public function all()
   {
