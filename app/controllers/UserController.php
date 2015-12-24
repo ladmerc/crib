@@ -19,8 +19,7 @@ class UserController extends \BaseController {
 	public function index()
 	{
 		//
-		// return $this->user->all();
-		echo($this->user->dummy);
+		return $this->user->all();
 	}
 
 
@@ -44,11 +43,11 @@ class UserController extends \BaseController {
 	public function store()
 	{
 		//
-		if (! $this->user->isValid(Input::all()))
+		if (! $this->user->userModel->isValid(Input::all()))
 		{
-			return Redirect::back()->withInput()->withErrors($this->user->errors);
+			return Redirect::back()->withInput()->withErrors($this->user->userModel->errors);
 		}
-		$this->user->create(Input::al());
+		$this->user->create(Input::all());
 		Redirect::route('users.index')->with('flash', 'The new user has been saved');
 	}
 
